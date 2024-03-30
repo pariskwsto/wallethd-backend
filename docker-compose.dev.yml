@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  dev-api:
+    container_name: walledhd-backend-dev-api
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - "5005:5005"
+    environment:
+      - FORCE_COLOR=1
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    depends_on:
+      - dev-mongodb
+  dev-mongodb:
+    container_name: walledhd-backend-dev-mongodb
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - dev-mongodb-data:/data/db
+  dev-mongo-express:
+    container_name: walledhd-backend-dev-mongo-express
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_URL: ${ME_CONFIG_MONGODB_URL}
+      ME_CONFIG_BASICAUTH_USERNAME: ${ME_CONFIG_BASICAUTH_USERNAME}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${ME_CONFIG_BASICAUTH_PASSWORD}
+    depends_on:
+      - dev-mongodb
+
+volumes:
+  dev-mongodb-data:
+    name: walledhd-backend-dev-mongodb-data
