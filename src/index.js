@@ -10,6 +10,9 @@ const morgan = require("morgan");
 const config = require("./config");
 const port = config.port;
 
+// middleware
+const errorHandler = require("./middleware/errorHandler");
+
 // db connection
 const connectDB = require("./config/db");
 connectDB();
@@ -17,10 +20,18 @@ connectDB();
 // express application
 const app = express();
 
+// body parser
+app.use(express.json());
+
 // dev logging middleware
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+// mount routers
+app.use("/v1", require("./routes/v1"));
+
+app.use(errorHandler);
 
 const server = app.listen(port, () => {
   console.log(`NODE_ENV: ${process.env.NODE_ENV}`.cyan);
