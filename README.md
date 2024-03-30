@@ -23,3 +23,9 @@ Start local development
 ```
 make start
 ```
+
+or start development services with docker
+
+```
+make docker-dev
+```
