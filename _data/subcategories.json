@@ -1,0 +1,303 @@
+[
+  {
+    "name": "Lunch",
+    "category": "66017b7c84c3fe09e1fbc899",
+    "_id": "66018595a7d3a914484f6764",
+    "createdAt": "2024-03-25T14:09:25.204Z",
+    "updatedAt": "2024-03-25T14:09:25.204Z"
+  },
+  {
+    "name": "Dinner",
+    "category": "66017b7c84c3fe09e1fbc899",
+    "_id": "660185d84d053b0826c60278",
+    "createdAt": "2024-03-25T14:10:32.451Z",
+    "updatedAt": "2024-03-25T14:10:32.451Z"
+  },
+  {
+    "name": "Eating out",
+    "category": "66017b7c84c3fe09e1fbc899",
+    "_id": "660185e94d053b0826c6027b",
+    "createdAt": "2024-03-25T14:10:49.141Z",
+    "updatedAt": "2024-03-25T14:10:49.141Z"
+  },
+  {
+    "name": "Beverages",
+    "category": "66017b7c84c3fe09e1fbc899",
+    "_id": "660185f64d053b0826c6027e",
+    "createdAt": "2024-03-25T14:11:02.072Z",
+    "updatedAt": "2024-03-25T14:11:02.072Z"
+  },
+  {
+    "name": "Friend",
+    "category": "66017b9584c3fe09e1fbc89b",
+    "_id": "66018a5882f599be2b14074a",
+    "createdAt": "2024-03-25T14:29:44.149Z",
+    "updatedAt": "2024-03-25T14:29:44.149Z"
+  },
+  {
+    "name": "Fellowship",
+    "category": "66017b9584c3fe09e1fbc89b",
+    "_id": "66018a6682f599be2b14074d",
+    "createdAt": "2024-03-25T14:29:58.058Z",
+    "updatedAt": "2024-03-25T14:29:58.058Z"
+  },
+  {
+    "name": "Alumni",
+    "category": "66017b9584c3fe09e1fbc89b",
+    "_id": "66018a7582f599be2b140750",
+    "createdAt": "2024-03-25T14:30:13.799Z",
+    "updatedAt": "2024-03-25T14:30:13.799Z"
+  },
+  {
+    "name": "Dues",
+    "category": "66017b9584c3fe09e1fbc89b",
+    "_id": "66018a8582f599be2b140753",
+    "createdAt": "2024-03-25T14:30:29.051Z",
+    "updatedAt": "2024-03-25T14:30:29.051Z"
+  },
+  {
+    "name": "Bus",
+    "category": "66017bb284c3fe09e1fbc89f",
+    "_id": "66018ae3f82d9860df6275fb",
+    "createdAt": "2024-03-25T14:32:03.787Z",
+    "updatedAt": "2024-03-25T14:32:03.787Z"
+  },
+  {
+    "name": "Subway",
+    "category": "66017bb284c3fe09e1fbc89f",
+    "_id": "66018aeff82d9860df6275fe",
+    "createdAt": "2024-03-25T14:32:15.009Z",
+    "updatedAt": "2024-03-25T14:32:15.009Z"
+  },
+  {
+    "name": "Taxi",
+    "category": "66017bb284c3fe09e1fbc89f",
+    "_id": "66018afbf82d9860df627601",
+    "createdAt": "2024-03-25T14:32:27.549Z",
+    "updatedAt": "2024-03-25T14:32:27.550Z"
+  },
+  {
+    "name": "Car",
+    "category": "66017bb284c3fe09e1fbc89f",
+    "_id": "66018b06f82d9860df627604",
+    "createdAt": "2024-03-25T14:32:38.920Z",
+    "updatedAt": "2024-03-25T14:32:38.920Z"
+  },
+  {
+    "name": "Books",
+    "category": "66017bc084c3fe09e1fbc8a1",
+    "_id": "66018b2358ab48d59121090d",
+    "createdAt": "2024-03-25T14:33:07.474Z",
+    "updatedAt": "2024-03-25T14:33:07.474Z"
+  },
+  {
+    "name": "Movie",
+    "category": "66017bc084c3fe09e1fbc8a1",
+    "_id": "66018b2e58ab48d591210910",
+    "createdAt": "2024-03-25T14:33:18.740Z",
+    "updatedAt": "2024-03-25T14:33:18.740Z"
+  },
+  {
+    "name": "Music",
+    "category": "66017bc084c3fe09e1fbc8a1",
+    "_id": "66018b3658ab48d591210913",
+    "createdAt": "2024-03-25T14:33:26.872Z",
+    "updatedAt": "2024-03-25T14:33:26.872Z"
+  },
+  {
+    "name": "Apps",
+    "category": "66017bc084c3fe09e1fbc8a1",
+    "_id": "66018b4458ab48d591210916",
+    "createdAt": "2024-03-25T14:33:40.612Z",
+    "updatedAt": "2024-03-25T14:33:40.612Z"
+  },
+  {
+    "name": "Appliances",
+    "category": "66017bd584c3fe09e1fbc8a3",
+    "_id": "66018f60ab4ad67d4c8e1e62",
+    "createdAt": "2024-03-25T14:51:12.510Z",
+    "updatedAt": "2024-03-25T14:51:12.510Z"
+  },
+  {
+    "name": "Furniture",
+    "category": "66017bd584c3fe09e1fbc8a3",
+    "_id": "66018f76ab4ad67d4c8e1e65",
+    "createdAt": "2024-03-25T14:51:34.623Z",
+    "updatedAt": "2024-03-25T14:51:34.623Z"
+  },
+  {
+    "name": "Kitchen",
+    "category": "66017bd584c3fe09e1fbc8a3",
+    "_id": "66018f81ab4ad67d4c8e1e68",
+    "createdAt": "2024-03-25T14:51:45.072Z",
+    "updatedAt": "2024-03-25T14:51:45.072Z"
+  },
+  {
+    "name": "Toiletries",
+    "category": "66017bd584c3fe09e1fbc8a3",
+    "_id": "66018f91ab4ad67d4c8e1e6b",
+    "createdAt": "2024-03-25T14:52:01.255Z",
+    "updatedAt": "2024-03-25T14:52:01.255Z"
+  },
+  {
+    "name": "Chandlery",
+    "category": "66017bd584c3fe09e1fbc8a3",
+    "_id": "66018fa7ab4ad67d4c8e1e6e",
+    "createdAt": "2024-03-25T14:52:23.948Z",
+    "updatedAt": "2024-03-25T14:52:23.948Z"
+  },
+  {
+    "name": "Rent",
+    "category": "6601ce4842e29b4f9ad8b870",
+    "_id": "6601cea924d197ed4d06b5df",
+    "createdAt": "2024-03-25T14:52:23.948Z",
+    "updatedAt": "2024-03-25T14:52:23.948Z"
+  },
+  {
+    "name": "Electricity bill",
+    "category": "6601ce4842e29b4f9ad8b870",
+    "_id": "6601ceb424d197ed4d06b5e1",
+    "createdAt": "2024-03-25T14:52:23.948Z",
+    "updatedAt": "2024-03-25T14:52:23.948Z"
+  },
+  {
+    "name": "Internet bill",
+    "category": "6601ce4842e29b4f9ad8b870",
+    "_id": "6601ceba24d197ed4d06b5e3",
+    "createdAt": "2024-03-25T14:52:23.948Z",
+    "updatedAt": "2024-03-25T14:52:23.948Z"
+  },
+  {
+    "name": "Maintenance",
+    "category": "6601ba66241d3919404a7139",
+    "_id": "6601bab127c3b555ee97d1d3",
+    "createdAt": "2024-03-25T17:56:01.789Z",
+    "updatedAt": "2024-03-25T17:56:01.789Z"
+  },
+  {
+    "name": "Fuel",
+    "category": "6601ba66241d3919404a7139",
+    "_id": "6601babd27c3b555ee97d1d6",
+    "createdAt": "2024-03-25T17:56:13.903Z",
+    "updatedAt": "2024-03-25T17:56:13.903Z"
+  },
+  {
+    "name": "Service",
+    "category": "6601ba66241d3919404a7139",
+    "_id": "6601bac927c3b555ee97d1d9",
+    "createdAt": "2024-03-25T17:56:25.781Z",
+    "updatedAt": "2024-03-25T17:56:25.781Z"
+  },
+  {
+    "name": "Clothing",
+    "category": "66017be084c3fe09e1fbc8a5",
+    "_id": "66018fc912519ada69f530b6",
+    "createdAt": "2024-03-25T14:52:57.826Z",
+    "updatedAt": "2024-03-25T14:52:57.826Z"
+  },
+  {
+    "name": "Fashion",
+    "category": "66017be084c3fe09e1fbc8a5",
+    "_id": "66018fd412519ada69f530b9",
+    "createdAt": "2024-03-25T14:53:08.460Z",
+    "updatedAt": "2024-03-25T14:53:08.460Z"
+  },
+  {
+    "name": "Shoes",
+    "category": "66017be084c3fe09e1fbc8a5",
+    "_id": "66018fde12519ada69f530bc",
+    "createdAt": "2024-03-25T14:53:18.701Z",
+    "updatedAt": "2024-03-25T14:53:18.701Z"
+  },
+  {
+    "name": "Laundry",
+    "category": "66017be084c3fe09e1fbc8a5",
+    "_id": "66018fe812519ada69f530bf",
+    "createdAt": "2024-03-25T14:53:28.401Z",
+    "updatedAt": "2024-03-25T14:53:28.401Z"
+  },
+  {
+    "name": "Cosmetics",
+    "category": "66017bee84c3fe09e1fbc8a7",
+    "_id": "6601900eb8ac36b6d0224440",
+    "createdAt": "2024-03-25T14:54:06.227Z",
+    "updatedAt": "2024-03-25T14:54:06.227Z"
+  },
+  {
+    "name": "Makeup",
+    "category": "66017bee84c3fe09e1fbc8a7",
+    "_id": "6601901ab8ac36b6d0224443",
+    "createdAt": "2024-03-25T14:54:18.923Z",
+    "updatedAt": "2024-03-25T14:54:18.923Z"
+  },
+  {
+    "name": "Accessories",
+    "category": "66017bee84c3fe09e1fbc8a7",
+    "_id": "6601902bb8ac36b6d0224446",
+    "createdAt": "2024-03-25T14:54:35.632Z",
+    "updatedAt": "2024-03-25T14:54:35.633Z"
+  },
+  {
+    "name": "Beauty",
+    "category": "66017bee84c3fe09e1fbc8a7",
+    "_id": "66019038b8ac36b6d0224449",
+    "createdAt": "2024-03-25T14:54:48.274Z",
+    "updatedAt": "2024-03-25T14:54:48.274Z"
+  },
+  {
+    "name": "Health",
+    "category": "66017bfe84c3fe09e1fbc8a9",
+    "_id": "660190632636ce815f319f49",
+    "createdAt": "2024-03-25T14:55:31.897Z",
+    "updatedAt": "2024-03-25T14:55:31.897Z"
+  },
+  {
+    "name": "Yoga",
+    "category": "66017bfe84c3fe09e1fbc8a9",
+    "_id": "660190712636ce815f319f4c",
+    "createdAt": "2024-03-25T14:55:45.835Z",
+    "updatedAt": "2024-03-25T14:55:45.835Z"
+  },
+  {
+    "name": "Hospital",
+    "category": "66017bfe84c3fe09e1fbc8a9",
+    "_id": "6601907b2636ce815f319f4f",
+    "createdAt": "2024-03-25T14:55:55.606Z",
+    "updatedAt": "2024-03-25T14:55:55.606Z"
+  },
+  {
+    "name": "Medicine",
+    "category": "66017bfe84c3fe09e1fbc8a9",
+    "_id": "660190882636ce815f319f52",
+    "createdAt": "2024-03-25T14:56:08.624Z",
+    "updatedAt": "2024-03-25T14:56:08.624Z"
+  },
+  {
+    "name": "Schooling",
+    "category": "66017c0884c3fe09e1fbc8ab",
+    "_id": "6601909c67f51c44c449e520",
+    "createdAt": "2024-03-25T14:56:28.971Z",
+    "updatedAt": "2024-03-25T14:56:28.971Z"
+  },
+  {
+    "name": "Textbooks",
+    "category": "66017c0884c3fe09e1fbc8ab",
+    "_id": "660190a867f51c44c449e523",
+    "createdAt": "2024-03-25T14:56:40.487Z",
+    "updatedAt": "2024-03-25T14:56:40.487Z"
+  },
+  {
+    "name": "School supplies",
+    "category": "66017c0884c3fe09e1fbc8ab",
+    "_id": "660190b367f51c44c449e526",
+    "createdAt": "2024-03-25T14:56:51.768Z",
+    "updatedAt": "2024-03-25T14:56:51.768Z"
+  },
+  {
+    "name": "Academy",
+    "category": "66017c0884c3fe09e1fbc8ab",
+    "_id": "660190d317b136b26b898761",
+    "createdAt": "2024-03-25T14:57:23.675Z",
+    "updatedAt": "2024-03-25T14:57:23.675Z"
+  }
+]
