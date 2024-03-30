@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Allowance",
+    "transactionType": "income",
+    "_id": "6601791c8b327821d40123e3",
+    "createdAt": "2024-03-25T13:16:12.901Z",
+    "updatedAt": "2024-03-25T13:16:12.901Z"
+  },
+  {
+    "name": "Salary",
+    "transactionType": "income",
+    "_id": "660179518b327821d40123e5",
+    "createdAt": "2024-03-25T13:17:05.407Z",
+    "updatedAt": "2024-03-25T13:17:05.407Z"
+  },
+  {
+    "name": "Petty Cash",
+    "transactionType": "income",
+    "_id": "66017976d87edf84c2d95007",
+    "createdAt": "2024-03-25T13:17:42.071Z",
+    "updatedAt": "2024-03-25T13:17:42.071Z"
+  },
+  {
+    "name": "Bonus",
+    "transactionType": "income",
+    "_id": "6601798566e10f848e73cc08",
+    "createdAt": "2024-03-25T13:17:57.549Z",
+    "updatedAt": "2024-03-25T13:17:57.549Z"
+  },
+  {
+    "name": "Other",
+    "transactionType": "income",
+    "_id": "6601799233d7327fc686dc86",
+    "createdAt": "2024-03-25T13:18:10.921Z",
+    "updatedAt": "2024-03-25T13:18:10.921Z"
+  },
+  {
+    "name": "Food",
+    "transactionType": "expense",
+    "_id": "66017b7c84c3fe09e1fbc899",
+    "createdAt": "2024-03-25T13:26:20.826Z",
+    "updatedAt": "2024-03-25T13:26:20.826Z"
+  },
+  {
+    "name": "Social Life",
+    "transactionType": "expense",
+    "_id": "66017b9584c3fe09e1fbc89b",
+    "createdAt": "2024-03-25T13:26:45.059Z",
+    "updatedAt": "2024-03-25T13:26:45.059Z"
+  },
+  {
+    "name": "Pets",
+    "transactionType": "expense",
+    "_id": "66017ba084c3fe09e1fbc89d",
+    "createdAt": "2024-03-25T13:26:56.920Z",
+    "updatedAt": "2024-03-25T13:26:56.920Z"
+  },
+  {
+    "name": "Transport",
+    "transactionType": "expense",
+    "_id": "66017bb284c3fe09e1fbc89f",
+    "createdAt": "2024-03-25T13:27:14.166Z",
+    "updatedAt": "2024-03-25T13:27:14.166Z"
+  },
+  {
+    "name": "Culture",
+    "transactionType": "expense",
+    "_id": "66017bc084c3fe09e1fbc8a1",
+    "createdAt": "2024-03-25T13:27:28.162Z",
+    "updatedAt": "2024-03-25T13:27:28.162Z"
+  },
+  {
+    "name": "Household",
+    "transactionType": "expense",
+    "_id": "66017bd584c3fe09e1fbc8a3",
+    "createdAt": "2024-03-25T13:27:49.186Z",
+    "updatedAt": "2024-03-25T13:27:49.186Z"
+  },
+  {
+    "name": "Utilities",
+    "transactionType": "expense",
+    "_id": "6601ce4842e29b4f9ad8b870",
+    "createdAt": "2024-03-25T13:27:49.186Z",
+    "updatedAt": "2024-03-25T13:27:49.186Z"
+  },
+  {
+    "name": "Vehicles",
+    "transactionType": "expense",
+    "_id": "6601ba66241d3919404a7139",
+    "createdAt": "2024-03-25T17:54:46.845Z",
+    "updatedAt": "2024-03-25T17:54:46.845Z"
+  },
+  {
+    "name": "Apparel",
+    "transactionType": "expense",
+    "_id": "66017be084c3fe09e1fbc8a5",
+    "createdAt": "2024-03-25T13:28:00.532Z",
+    "updatedAt": "2024-03-25T13:28:00.532Z"
+  },
+  {
+    "name": "Beauty",
+    "transactionType": "expense",
+    "_id": "66017bee84c3fe09e1fbc8a7",
+    "createdAt": "2024-03-25T13:28:14.000Z",
+    "updatedAt": "2024-03-25T13:28:14.000Z"
+  },
+  {
+    "name": "Health",
+    "transactionType": "expense",
+    "_id": "66017bfe84c3fe09e1fbc8a9",
+    "createdAt": "2024-03-25T13:28:30.281Z",
+    "updatedAt": "2024-03-25T13:28:30.281Z"
+  },
+  {
+    "name": "Education",
+    "transactionType": "expense",
+    "_id": "66017c0884c3fe09e1fbc8ab",
+    "createdAt": "2024-03-25T13:28:40.242Z",
+    "updatedAt": "2024-03-25T13:28:40.242Z"
+  },
+  {
+    "name": "Gift",
+    "transactionType": "expense",
+    "_id": "66017c1384c3fe09e1fbc8ad",
+    "createdAt": "2024-03-25T13:28:51.497Z",
+    "updatedAt": "2024-03-25T13:28:51.497Z"
+  }
+]
