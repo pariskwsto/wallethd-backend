@@ -1,15 +1,29 @@
 const asyncHandler = require("../middleware/asyncHandler");
+const Category = require("../models/Category");
 const Subcategory = require("../models/Subcategory");
 const ErrorResponse = require("../utils/errorResponse");
 
 /**
- * @desc    Get all subcategories
+ * @desc    Get all subcategories or by category
+ * @route   GET /v1/categories/:categoryId/subcategories
  * @route   GET /v1/subcategories
  * @access  Private
  */
-exports.getAllSubcategories = asyncHandler(async (_, res) => {
-  const subcategories = await Subcategory.find();
-  res.status(200).json({ success: true, data: subcategories });
+exports.getAllSubcategories = asyncHandler(async (req, res) => {
+  if (req.params.categoryId) {
+    const subcategories = await Subcategory.find({
+      category: req.params.categoryId,
+    });
+
+    res.status(200).json({
+      success: true,
+      count: subcategories.length,
+      data: subcategories,
+    });
+  } else {
+    const subcategories = await Subcategory.find();
+    res.status(200).json({ success: true, data: subcategories });
+  }
 });
 
 /**
@@ -18,7 +32,10 @@ exports.getAllSubcategories = asyncHandler(async (_, res) => {
  * @access  Private
  */
 exports.getSubcategory = asyncHandler(async (req, res, next) => {
-  const subcategory = await Subcategory.findById(req.params.id);
+  const subcategory = await Subcategory.findById(req.params.id).populate({
+    path: "category",
+    select: "name description",
+  });
 
   if (!subcategory) {
     return next(
@@ -31,11 +48,22 @@ exports.getSubcategory = asyncHandler(async (req, res, next) => {
 
 /**
  * @desc    Create new subcategory
- * @route   POST /v1/subcategories
+ * @route   POST /v1/categories/:categoryId/subcategories
  * @access  Private
  */
 exports.createSubcategory = asyncHandler(async (req, res) => {
+  req.body.category = req.params.categoryId;
+
+  const category = await Category.findById(req.params.categoryId);
+
+  if (!category) {
+    return next(
+      new ErrorResponse(`Category with id ${req.params.id} not found`, 404)
+    );
+  }
+
   const subcategory = await Subcategory.create(req.body);
+
   res.status(201).json({ success: true, data: subcategory });
 });
 

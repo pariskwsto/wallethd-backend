@@ -8,7 +8,13 @@ const {
   deleteCategory,
 } = require("../../controllers/categories");
 
+// include other resource routers
+const subcategoryRouter = require("./subcategories");
+
 const router = express.Router();
+
+// re-route into other resource routers
+router.use("/:categoryId/subcategories", subcategoryRouter);
 
 router.route("/").get(getAllCategories).post(createCategory);
 

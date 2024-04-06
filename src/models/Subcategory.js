@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 
 const SubcategorySchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please add a subcategory name"],
-    maxlength: [60, "Subcategory name can not be more than 60 characters"],
+    maxlength: [50, "Subcategory name can not be more than 50 characters"],
     unique: true,
     trim: true,
   },
+  slug: String,
   description: {
     type: String,
     maxlength: [
@@ -15,6 +17,7 @@ const SubcategorySchema = new mongoose.Schema({
       "Subcategory description can not be more than 250 characters",
     ],
   },
+  icon: String,
   order: {
     type: Number,
     default: 0,
@@ -32,6 +35,12 @@ const SubcategorySchema = new mongoose.Schema({
     ref: "Category",
     required: true,
   },
+});
+
+// create subcategory slug from the name
+SubcategorySchema.pre("save", function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
 });
 
 module.exports = mongoose.model(
