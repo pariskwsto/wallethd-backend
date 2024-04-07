@@ -37,7 +37,7 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
 exports.createCategory = asyncHandler(async (req, res) => {
   const category = await Category.create(req.body);
   res.status(201).json({ success: true, data: category });
-});
+}, "Category");
 
 /**
  * @desc    Update category
@@ -45,7 +45,15 @@ exports.createCategory = asyncHandler(async (req, res) => {
  * @access  Private
  */
 exports.updateCategory = asyncHandler(async (req, res, next) => {
-  const category = await Category.findByIdAndUpdate(req.params.id, req.body, {
+  let category = await Category.findById(req.params.id);
+
+  if (!category) {
+    return next(
+      new ErrorResponse(`Category with id ${req.params.id} not found`, 404)
+    );
+  }
+
+  category = await Category.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
   });
@@ -57,7 +65,7 @@ exports.updateCategory = asyncHandler(async (req, res, next) => {
   }
 
   res.status(200).json({ success: true, data: category });
-});
+}, "Category");
 
 /**
  * @desc    Delete category

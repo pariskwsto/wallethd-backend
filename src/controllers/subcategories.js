@@ -34,7 +34,7 @@ exports.getAllSubcategories = asyncHandler(async (req, res) => {
 exports.getSubcategory = asyncHandler(async (req, res, next) => {
   const subcategory = await Subcategory.findById(req.params.id).populate({
     path: "category",
-    select: "name description",
+    select: "name",
   });
 
   if (!subcategory) {
@@ -51,21 +51,24 @@ exports.getSubcategory = asyncHandler(async (req, res, next) => {
  * @route   POST /v1/categories/:categoryId/subcategories
  * @access  Private
  */
-exports.createSubcategory = asyncHandler(async (req, res) => {
+exports.createSubcategory = asyncHandler(async (req, res, next) => {
   req.body.category = req.params.categoryId;
 
   const category = await Category.findById(req.params.categoryId);
 
   if (!category) {
     return next(
-      new ErrorResponse(`Category with id ${req.params.id} not found`, 404)
+      new ErrorResponse(
+        `Category with id ${req.params.categoryId} not found`,
+        404
+      )
     );
   }
 
   const subcategory = await Subcategory.create(req.body);
 
   res.status(201).json({ success: true, data: subcategory });
-});
+}, "Subcategory");
 
 /**
  * @desc    Update subcategory
@@ -73,14 +76,18 @@ exports.createSubcategory = asyncHandler(async (req, res) => {
  * @access  Private
  */
 exports.updateSubcategory = asyncHandler(async (req, res, next) => {
-  const subcategory = await Subcategory.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-      runValidators: true,
-    }
-  );
+  let subcategory = await Subcategory.findById(req.params.id);
+
+  if (!subcategory) {
+    return next(
+      new ErrorResponse(`Subcategory with id ${req.params.id} not found`, 404)
+    );
+  }
+
+  subcategory = await Subcategory.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
 
   if (!subcategory) {
     return next(
@@ -89,7 +96,7 @@ exports.updateSubcategory = asyncHandler(async (req, res, next) => {
   }
 
   res.status(200).json({ success: true, data: subcategory });
-});
+}, "Subcategory");
 
 /**
  * @desc    Delete subcategory
