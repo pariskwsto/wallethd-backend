@@ -7,7 +7,6 @@ const CategorySchema = new mongoose.Schema(
       type: String,
       required: [true, "Please add a category name"],
       maxlength: [50, "Category name can not be more than 50 characters"],
-      unique: true,
       trim: true,
     },
     slug: String,
@@ -28,26 +27,46 @@ const CategorySchema = new mongoose.Schema(
       required: [true, "Please add a transaction type"],
       enum: ["income", "expense"],
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now,
-    },
   },
   {
+    // enable automatic createdAt and updatedAt fields
+    timestamps: true,
+    // include virtuals when document is converted to JSON
     toJSON: { virtuals: true },
+    // include virtuals when document is converted to a plain object
     toObject: { virtuals: true },
   }
 );
 
-// create category slug from the name
+// create category slug from the name and transactionType
 CategorySchema.pre("save", function (next) {
-  this.slug = slugify(this.name, { lower: true });
+  this.slug = slugify(`${this.name}-${this.transactionType}`, { lower: true });
   next();
 });
+
+// update category slug from the name and transactionType
+CategorySchema.pre("findOneAndUpdate", async function (next) {
+  const { name, transactionType } = this.getUpdate();
+
+  if (name || transactionType) {
+    const currentDocument = await this.model.findOne(this.getQuery());
+
+    const updatedSlug = slugify(
+      `${name || currentDocument.name}-${
+        transactionType || currentDocument.transactionType
+      }`,
+      {
+        lower: true,
+      }
+    );
+    this.set({ slug: updatedSlug });
+  }
+
+  next();
+});
+
+// compound index for name and transactionType
+CategorySchema.index({ name: 1, transactionType: 1 }, { unique: true });
 
 // reverse populate with virtuals
 CategorySchema.virtual("subcategories", {

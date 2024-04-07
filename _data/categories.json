@@ -71,6 +71,7 @@
   },
   {
     "name": "Household",
+    "description": "These categories represent expenses related to the operation and maintenance of a household. They can be considered discretionary or essential expenses depending on the individual's or household's lifestyle and budgeting framework.",
     "transactionType": "expense",
     "_id": "66017bd584c3fe09e1fbc8a3",
     "createdAt": "2024-03-25T13:27:49.186Z",
@@ -78,6 +79,7 @@
   },
   {
     "name": "Utilities",
+    "description": "These categories are typically non-discretionary and recur on a regular basis. They are essential for the basic operation of a household.",
     "transactionType": "expense",
     "_id": "6601ce4842e29b4f9ad8b870",
     "createdAt": "2024-03-25T13:27:49.186Z",
@@ -85,6 +87,7 @@
   },
   {
     "name": "Vehicles",
+    "description": "These categories represent expenses related to the operation and maintenance of a vehicle.",
     "transactionType": "expense",
     "_id": "6601ba66241d3919404a7139",
     "createdAt": "2024-03-25T17:54:46.845Z",
