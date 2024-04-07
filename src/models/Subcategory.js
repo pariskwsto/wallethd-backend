@@ -1,47 +1,66 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
 
-const SubcategorySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Please add a subcategory name"],
-    maxlength: [50, "Subcategory name can not be more than 50 characters"],
-    unique: true,
-    trim: true,
+const SubcategorySchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Please add a subcategory name"],
+      maxlength: [50, "Subcategory name can not be more than 50 characters"],
+      trim: true,
+    },
+    slug: String,
+    description: {
+      type: String,
+      maxlength: [
+        250,
+        "Subcategory description can not be more than 250 characters",
+      ],
+    },
+    icon: String,
+    order: {
+      type: Number,
+      default: 0,
+    },
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
+    },
   },
-  slug: String,
-  description: {
-    type: String,
-    maxlength: [
-      250,
-      "Subcategory description can not be more than 250 characters",
-    ],
-  },
-  icon: String,
-  order: {
-    type: Number,
-    default: 0,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
-  category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Category",
-    required: true,
-  },
-});
+  {
+    // enable automatic createdAt and updatedAt fields
+    timestamps: true,
+  }
+);
 
-// create subcategory slug from the name
+// create subcategory slug from the name and category
 SubcategorySchema.pre("save", function (next) {
-  this.slug = slugify(this.name, { lower: true });
+  this.slug = slugify(`${this.name}-${this.category}`, { lower: true });
   next();
 });
+
+// update category slug from the name and category
+SubcategorySchema.pre("findOneAndUpdate", async function (next) {
+  const { name, category } = this.getUpdate();
+
+  if (name || category) {
+    const currentDocument = await this.model.findOne(this.getQuery());
+
+    const updatedSlug = slugify(
+      `${name || currentDocument.name}-${category || currentDocument.category}`,
+      {
+        lower: true,
+      }
+    );
+    this.set({ slug: updatedSlug });
+  }
+
+  next();
+});
+
+// compound index to ensure name is unique within each category
+SubcategorySchema.index({ name: 1, category: 1 }, { unique: true });
 
 module.exports = mongoose.model(
   "Subcategory",

@@ -113,6 +113,7 @@
   },
   {
     "name": "Appliances",
+    "description": "Expenses on purchasing or repairing household appliances. Items like refrigerators, ovens, washing machines.",
     "category": "66017bd584c3fe09e1fbc8a3",
     "_id": "66018f60ab4ad67d4c8e1e62",
     "createdAt": "2024-03-25T14:51:12.510Z",
@@ -120,6 +121,7 @@
   },
   {
     "name": "Furniture",
+    "description": "Money spent on buying furniture. Items such as sofas, beds, and tables.",
     "category": "66017bd584c3fe09e1fbc8a3",
     "_id": "66018f76ab4ad67d4c8e1e65",
     "createdAt": "2024-03-25T14:51:34.623Z",
@@ -127,6 +129,7 @@
   },
   {
     "name": "Kitchen",
+    "description": "Expenses related to kitchen supplies or upgrades. This could include kitchenware and utensils.",
     "category": "66017bd584c3fe09e1fbc8a3",
     "_id": "66018f81ab4ad67d4c8e1e68",
     "createdAt": "2024-03-25T14:51:45.072Z",
@@ -134,6 +137,7 @@
   },
   {
     "name": "Toiletries",
+    "description": "Money spent on personal care products. Items like soap, shampoo, and toothpaste.",
     "category": "66017bd584c3fe09e1fbc8a3",
     "_id": "66018f91ab4ad67d4c8e1e6b",
     "createdAt": "2024-03-25T14:52:01.255Z",
@@ -141,20 +145,22 @@
   },
   {
     "name": "Chandlery",
+    "description": "It could include miscellaneous household expenses or supplies not covered by other categories.",
     "category": "66017bd584c3fe09e1fbc8a3",
-    "_id": "66018fa7ab4ad67d4c8e1e6e",
-    "createdAt": "2024-03-25T14:52:23.948Z",
-    "updatedAt": "2024-03-25T14:52:23.948Z"
+    "_id": "661162ab15cad503af0246bf",
+    "createdAt": "2024-03-25T14:52:01.255Z",
+    "updatedAt": "2024-03-25T14:52:01.255Z"
   },
   {
     "name": "Rent",
-    "category": "6601ce4842e29b4f9ad8b870",
+    "category": "66017bd584c3fe09e1fbc8a3",
     "_id": "6601cea924d197ed4d06b5df",
     "createdAt": "2024-03-25T14:52:23.948Z",
     "updatedAt": "2024-03-25T14:52:23.948Z"
   },
   {
     "name": "Electricity bill",
+    "description": "Regular payments for electricity usage",
     "category": "6601ce4842e29b4f9ad8b870",
     "_id": "6601ceb424d197ed4d06b5e1",
     "createdAt": "2024-03-25T14:52:23.948Z",
@@ -162,13 +168,23 @@
   },
   {
     "name": "Internet bill",
+    "description": "Regular payments for internet usage",
     "category": "6601ce4842e29b4f9ad8b870",
     "_id": "6601ceba24d197ed4d06b5e3",
     "createdAt": "2024-03-25T14:52:23.948Z",
     "updatedAt": "2024-03-25T14:52:23.948Z"
   },
   {
+    "name": "Water bill",
+    "description": "Regular payments for water usage",
+    "category": "6601ce4842e29b4f9ad8b870",
+    "_id": "6611637b92498efa9180eb6e",
+    "createdAt": "2024-03-25T14:52:23.948Z",
+    "updatedAt": "2024-03-25T14:52:23.948Z"
+  },
+  {
     "name": "Maintenance",
+    "description": "Covers routine check-ups, repairs, and any general maintenance work on vehicles. For example: Changing tyres of your car.",
     "category": "6601ba66241d3919404a7139",
     "_id": "6601bab127c3b555ee97d1d3",
     "createdAt": "2024-03-25T17:56:01.789Z",
@@ -176,6 +192,7 @@
   },
   {
     "name": "Fuel",
+    "description": "Expenses related to fueling vehicles like cars, motorbikes, etc. For example: Adding gas to your motorbike.",
     "category": "6601ba66241d3919404a7139",
     "_id": "6601babd27c3b555ee97d1d6",
     "createdAt": "2024-03-25T17:56:13.903Z",
@@ -183,6 +200,7 @@
   },
   {
     "name": "Service",
+    "description": "Specific service costs, which can include professional services for vehicle repair or maintenance. For example: Doing service to your motorbike",
     "category": "6601ba66241d3919404a7139",
     "_id": "6601bac927c3b555ee97d1d9",
     "createdAt": "2024-03-25T17:56:25.781Z",
@@ -266,7 +284,7 @@
     "updatedAt": "2024-03-25T14:55:55.606Z"
   },
   {
-    "name": "Medicine",
+    "name": "Medicines",
     "category": "66017bfe84c3fe09e1fbc8a9",
     "_id": "660190882636ce815f319f52",
     "createdAt": "2024-03-25T14:56:08.624Z",
