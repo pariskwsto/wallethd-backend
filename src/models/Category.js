@@ -68,6 +68,17 @@ CategorySchema.pre("findOneAndUpdate", async function (next) {
   next();
 });
 
+// cascade delete subcategories when a category is deleted
+CategorySchema.pre(
+  "deleteOne",
+  { document: true, query: false },
+  async function (next) {
+    console.log(`Subcategories being removed for category ${this.name}`);
+    await this.model("Subcategory").deleteMany({ category: this._id });
+    next();
+  }
+);
+
 // reverse populate with virtuals
 CategorySchema.virtual("subcategories", {
   ref: "Subcategory",

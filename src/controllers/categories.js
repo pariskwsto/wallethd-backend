@@ -106,13 +106,15 @@ exports.updateCategory = asyncHandler(async (req, res, next) => {
  * @access  Private
  */
 exports.deleteCategory = asyncHandler(async (req, res, next) => {
-  const category = await Category.findByIdAndDelete(req.params.id);
+  const category = await Category.findById(req.params.id);
 
   if (!category) {
     return next(
       new ErrorResponse(`Category with id ${req.params.id} not found`, 404)
     );
   }
+
+  await category.deleteOne();
 
   res.status(200).json({ success: true, data: {} });
 });
