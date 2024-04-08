@@ -9,7 +9,10 @@ const SubcategorySchema = new mongoose.Schema(
       maxlength: [50, "Subcategory name can not be more than 50 characters"],
       trim: true,
     },
-    slug: String,
+    slug: {
+      type: String,
+      unique: true,
+    },
     description: {
       type: String,
       maxlength: [
@@ -58,9 +61,6 @@ SubcategorySchema.pre("findOneAndUpdate", async function (next) {
 
   next();
 });
-
-// compound index to ensure name is unique within each category
-SubcategorySchema.index({ name: 1, category: 1 }, { unique: true });
 
 module.exports = mongoose.model(
   "Subcategory",

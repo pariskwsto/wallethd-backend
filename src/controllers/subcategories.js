@@ -65,10 +65,22 @@ exports.createSubcategory = asyncHandler(async (req, res, next) => {
     );
   }
 
-  const subcategory = await Subcategory.create(req.body);
+  try {
+    const subcategory = await Subcategory.create(req.body);
+    res.status(201).json({ success: true, data: subcategory });
+  } catch (err) {
+    if (err.code === 11000) {
+      return next(
+        new ErrorResponse(
+          `Subcategory "${req.body.name}" already exists in "${category.name}" category.`,
+          400
+        )
+      );
+    }
 
-  res.status(201).json({ success: true, data: subcategory });
-}, "Subcategory");
+    return next(err);
+  }
+});
 
 /**
  * @desc    Update subcategory
@@ -76,17 +88,9 @@ exports.createSubcategory = asyncHandler(async (req, res, next) => {
  * @access  Private
  */
 exports.updateSubcategory = asyncHandler(async (req, res, next) => {
-  let subcategory = await Subcategory.findById(req.params.id);
-
-  if (!subcategory) {
-    return next(
-      new ErrorResponse(`Subcategory with id ${req.params.id} not found`, 404)
-    );
-  }
-
-  subcategory = await Subcategory.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
+  const subcategory = await Subcategory.findById(req.params.id).populate({
+    path: "category",
+    select: "name",
   });
 
   if (!subcategory) {
@@ -95,8 +99,30 @@ exports.updateSubcategory = asyncHandler(async (req, res, next) => {
     );
   }
 
-  res.status(200).json({ success: true, data: subcategory });
-}, "Subcategory");
+  try {
+    const subcategory = await Subcategory.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    res.status(200).json({ success: true, data: subcategory });
+  } catch (err) {
+    if (err.code === 11000) {
+      return next(
+        new ErrorResponse(
+          `Subcategory "${req.body.name}" already exists in "${subcategory.category.name}" category.`,
+          400
+        )
+      );
+    }
+
+    return next(err);
+  }
+});
 
 /**
  * @desc    Delete subcategory
