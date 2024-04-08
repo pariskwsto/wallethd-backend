@@ -45,8 +45,8 @@
     "name": "Social Life",
     "transactionType": "expense",
     "_id": "66017b9584c3fe09e1fbc89b",
-    "createdAt": "2024-03-25T13:26:45.059Z",
-    "updatedAt": "2024-03-25T13:26:45.059Z"
+    "createdAt": "2024-03-28T13:26:45.059Z",
+    "updatedAt": "2024-03-28T13:26:45.059Z"
   },
   {
     "name": "Pets",
@@ -111,8 +111,8 @@
     "name": "Health",
     "transactionType": "expense",
     "_id": "66017bfe84c3fe09e1fbc8a9",
-    "createdAt": "2024-03-25T13:28:30.281Z",
-    "updatedAt": "2024-03-25T13:28:30.281Z"
+    "createdAt": "2024-04-01T13:26:45.059Z",
+    "updatedAt": "2024-04-01T13:26:45.059Z"
   },
   {
     "name": "Education",

@@ -8,8 +8,7 @@ const ErrorResponse = require("../utils/errorResponse");
  * @access  Private
  */
 exports.getAllCategories = asyncHandler(async (_, res) => {
-  const categories = await Category.find().populate("subcategories");
-  res.status(200).json({ success: true, data: categories });
+  res.status(200).json(res.advancedResults);
 });
 
 /**

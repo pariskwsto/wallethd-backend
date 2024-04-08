@@ -155,8 +155,8 @@
     "name": "Rent",
     "category": "66017bd584c3fe09e1fbc8a3",
     "_id": "6601cea924d197ed4d06b5df",
-    "createdAt": "2024-03-25T14:52:23.948Z",
-    "updatedAt": "2024-03-25T14:52:23.948Z"
+    "createdAt": "2024-04-01T14:52:23.948Z",
+    "updatedAt": "2024-04-01T14:52:23.948Z"
   },
   {
     "name": "Electricity bill",
@@ -294,15 +294,15 @@
     "name": "Schooling",
     "category": "66017c0884c3fe09e1fbc8ab",
     "_id": "6601909c67f51c44c449e520",
-    "createdAt": "2024-03-25T14:56:28.971Z",
-    "updatedAt": "2024-03-25T14:56:28.971Z"
+    "createdAt": "2024-04-02T14:52:23.948Z",
+    "updatedAt": "2024-04-02T14:52:23.948Z"
   },
   {
     "name": "Textbooks",
     "category": "66017c0884c3fe09e1fbc8ab",
     "_id": "660190a867f51c44c449e523",
-    "createdAt": "2024-03-25T14:56:40.487Z",
-    "updatedAt": "2024-03-25T14:56:40.487Z"
+    "createdAt": "2024-04-03T14:52:23.948Z",
+    "updatedAt": "2024-04-03T14:52:23.948Z"
   },
   {
     "name": "School supplies",

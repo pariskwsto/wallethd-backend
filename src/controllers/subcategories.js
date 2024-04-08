@@ -21,8 +21,7 @@ exports.getAllSubcategories = asyncHandler(async (req, res) => {
       data: subcategories,
     });
   } else {
-    const subcategories = await Subcategory.find();
-    res.status(200).json({ success: true, data: subcategories });
+    res.status(200).json(res.advancedResults);
   }
 });
 

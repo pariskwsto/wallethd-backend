@@ -8,9 +8,22 @@ const {
   deleteSubcategory,
 } = require("../../controllers/subcategories");
 
+const advancedResults = require("../../middleware/advancedResults");
+
+const Subcategory = require("../../models/Subcategory");
+
 const router = express.Router({ mergeParams: true });
 
-router.route("/").get(getAllSubcategories).post(createSubcategory);
+router
+  .route("/")
+  .get(
+    advancedResults(Subcategory, {
+      path: "category",
+      select: "name",
+    }),
+    getAllSubcategories
+  )
+  .post(createSubcategory);
 
 router
   .route("/:id")
