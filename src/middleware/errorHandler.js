@@ -28,12 +28,7 @@ const errorHandler = (err, req, res, next) => {
 
   // mongoose duplicate key
   if (err.code === 11000) {
-    const field = Object.keys(err.keyValue)[0];
-    const value = err.keyValue[field];
-
-    const modelName = err.modelName || "Resource";
-    const message = `${modelName} with ${field} "${value}" already exists.`;
-
+    const message = "Duplicate entry. The provided data already exists.";
     error = new ErrorResponse(message, 400);
   }
 

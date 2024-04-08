@@ -9,7 +9,10 @@ const CategorySchema = new mongoose.Schema(
       maxlength: [50, "Category name can not be more than 50 characters"],
       trim: true,
     },
-    slug: String,
+    slug: {
+      type: String,
+      unique: true,
+    },
     description: {
       type: String,
       maxlength: [
@@ -64,9 +67,6 @@ CategorySchema.pre("findOneAndUpdate", async function (next) {
 
   next();
 });
-
-// compound index for name and transactionType
-CategorySchema.index({ name: 1, transactionType: 1 }, { unique: true });
 
 // reverse populate with virtuals
 CategorySchema.virtual("subcategories", {
