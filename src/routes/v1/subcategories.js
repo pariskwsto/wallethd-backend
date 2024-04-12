@@ -9,10 +9,13 @@ const {
 } = require("../../controllers/subcategories");
 
 const advancedResults = require("../../middleware/advancedResults");
+const { authenticate } = require("../../middleware/auth");
 
 const Subcategory = require("../../models/Subcategory");
 
 const router = express.Router({ mergeParams: true });
+
+router.use(authenticate);
 
 router
   .route("/")

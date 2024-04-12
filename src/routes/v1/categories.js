@@ -9,6 +9,7 @@ const {
 } = require("../../controllers/categories");
 
 const advancedResults = require("../../middleware/advancedResults");
+const { authenticate } = require("../../middleware/auth");
 
 const Category = require("../../models/Category");
 
@@ -16,6 +17,8 @@ const Category = require("../../models/Category");
 const subcategoryRouter = require("./subcategories");
 
 const router = express.Router();
+
+router.use(authenticate);
 
 // re-route into other resource routers
 router.use("/:categoryId/subcategories", subcategoryRouter);
