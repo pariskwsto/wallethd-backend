@@ -67,8 +67,11 @@ const sendTokenResponse = (user, statusCode, res) => {
     options.secure = true;
   }
 
-  res.status(statusCode).cookie(process.env.TOKEN_NAME, token, options).json({
-    success: true,
-    token,
-  });
+  res
+    .status(statusCode)
+    .cookie(process.env.JTW_COOKIE_NAME, token, options)
+    .json({
+      success: true,
+      token,
+    });
 };
