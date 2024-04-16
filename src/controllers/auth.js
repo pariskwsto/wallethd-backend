@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const asyncHandler = require("../middleware/asyncHandler");
 const User = require("../models/User");
 const ErrorResponse = require("../utils/errorResponse");
@@ -29,7 +30,6 @@ exports.register = asyncHandler(async (req, res) => {
 
   const message = `You are receiving this email because you need to confirm your email address. Please make a GET request to: \n\n ${confirmEmailURL}`;
 
-  // REVIEW
   user.save({ validateBeforeSave: false });
 
   await sendEmail({
@@ -68,6 +68,45 @@ exports.login = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse("Invalid credentials", 401));
   }
 
+  sendTokenResponse(user, 200, res);
+});
+
+/**
+ * @desc    Confirm Email
+ * @route   GET /v1/auth/confirm-email
+ * @access  Public
+ */
+exports.confirmEmail = asyncHandler(async (req, res, next) => {
+  const { token } = req.query;
+
+  if (!token) {
+    return next(new ErrorResponse("Invalid Token", 400));
+  }
+
+  const splitToken = token.split(".")[0];
+  const confirmEmailToken = crypto
+    .createHash("sha256")
+    .update(splitToken)
+    .digest("hex");
+
+  // get user by token
+  const user = await User.findOne({
+    confirmEmailToken,
+    isEmailConfirmed: false,
+  });
+
+  if (!user) {
+    return next(new ErrorResponse("Invalid Token", 400));
+  }
+
+  // update confirmed to true
+  user.confirmEmailToken = undefined;
+  user.isEmailConfirmed = true;
+
+  // save
+  user.save({ validateBeforeSave: false });
+
+  // return token
   sendTokenResponse(user, 200, res);
 });
 
