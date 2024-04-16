@@ -103,6 +103,30 @@ exports.getProfile = asyncHandler(async (req, res) => {
 });
 
 /**
+ * @desc    Update user details
+ * @route   PUT /v1/auth/update-details
+ * @access  Private
+ */
+exports.updateDetails = asyncHandler(async (req, res) => {
+  const fieldsToUpdate = {
+    username: req.body.username,
+    email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+  };
+
+  const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    data: user,
+  });
+});
+
+/**
  * @desc    Confirm Email
  * @route   GET /v1/auth/confirm-email
  * @access  Public
