@@ -4,11 +4,11 @@ require("dotenv").config();
 // third party libs
 require("colors");
 const express = require("express");
+const fileupload = require("express-fileupload");
 const morgan = require("morgan");
 
 // server configuration
-const config = require("./config");
-const port = config.port;
+const { port, publicUploadsBasePath } = require("./config/express");
 
 // middleware
 const errorHandler = require("./middleware/errorHandler");
@@ -22,6 +22,11 @@ const app = express();
 
 // body parser
 app.use(express.json());
+// file uploading
+app.use(fileupload());
+
+// set static folder
+app.use(express.static(publicUploadsBasePath));
 
 // dev logging middleware
 if (process.env.NODE_ENV === "development") {

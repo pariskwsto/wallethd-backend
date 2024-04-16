@@ -28,6 +28,11 @@ const MediaSchema = new mongoose.Schema(
       default: false,
     },
     deletedAt: Date,
+    user: {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     timestamps: true,
