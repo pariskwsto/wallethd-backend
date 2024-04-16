@@ -127,6 +127,26 @@ exports.updateDetails = asyncHandler(async (req, res) => {
 });
 
 /**
+ * @desc    Update password
+ * @route   PUT /v1/auth/update-password
+ * @access  Private
+ */
+exports.updatePassword = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.user.id).select("+password");
+
+  // check current password
+  if (!(await user.matchPassword(req.body.currentPassword))) {
+    return next(new ErrorResponse("Password is incorrect", 401));
+  }
+
+  user.password = req.body.newPassword;
+
+  await user.save();
+
+  sendTokenResponse(user, 200, res);
+});
+
+/**
  * @desc    Confirm Email
  * @route   GET /v1/auth/confirm-email
  * @access  Public
