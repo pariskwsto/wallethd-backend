@@ -72,6 +72,37 @@ exports.login = asyncHandler(async (req, res, next) => {
 });
 
 /**
+ * @desc    Log user out / Clear cookie
+ * @route   GET /v1/auth/logout
+ * @access  Public
+ */
+exports.logout = asyncHandler(async (_, res) => {
+  res.cookie(process.env.JTW_COOKIE_NAME, "invalid", {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    data: {},
+  });
+});
+
+/**
+ * @desc    Get current logged in user
+ * @route   GET /v1/auth/profile
+ * @access  Private
+ */
+exports.getProfile = asyncHandler(async (req, res) => {
+  const user = req.user;
+
+  res.status(200).json({
+    success: true,
+    data: user,
+  });
+});
+
+/**
  * @desc    Confirm Email
  * @route   GET /v1/auth/confirm-email
  * @access  Public
