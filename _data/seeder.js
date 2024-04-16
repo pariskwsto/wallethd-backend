@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 
 // load models
 const Category = require("../src/models/Category");
+const Media = require("../src/models/Media");
 const Subcategory = require("../src/models/Subcategory");
 const User = require("../src/models/User");
 
@@ -21,6 +22,8 @@ const categories = JSON.parse(
   fs.readFileSync(`${__dirname}/categories.json`, "utf-8")
 );
 
+const media = JSON.parse(fs.readFileSync(`${__dirname}/media.json`, "utf-8"));
+
 const subcategories = JSON.parse(
   fs.readFileSync(`${__dirname}/subcategories.json`, "utf-8")
 );
@@ -31,6 +34,7 @@ const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, "utf-8"));
 const importData = async () => {
   try {
     await Category.create(categories);
+    await Media.create(media);
     await Subcategory.create(subcategories);
     await User.create(users);
 
@@ -45,6 +49,7 @@ const importData = async () => {
 const deleteData = async () => {
   try {
     await Category.deleteMany();
+    await Media.deleteMany();
     await Subcategory.deleteMany();
     await User.deleteMany();
 

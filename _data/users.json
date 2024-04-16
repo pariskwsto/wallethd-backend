@@ -10,7 +10,7 @@
   {
     "username": "janedoe",
     "email": "janedoe@example.com",
-    "password": "janedoe2024",
+    "password": "123456",
     "role": "viewer",
     "_id": "66191f8731b3905b855ee6ed",
     "createdAt": "2024-04-12T11:48:23.745Z",

@@ -1,0 +1,82 @@
+[
+  {
+    "metadata": {
+      "originalName": "image-1-1.jpg",
+      "size": 110298,
+      "md5": "65fd9ca44fc2406669d302415ffcd18d"
+    },
+    "_id": "661ee06f78c63a2baff5a440",
+    "name": "image-1-1.jpg",
+    "url": "2024/04/885e5655-4e5f-4949-a1f7-3ec7bcc809ec-image-1-1.jpg",
+    "mimetype": "image/jpeg",
+    "tags": [],
+    "isDeleted": false,
+    "user": "66191f8731b3905b855ee6ec",
+    "createdAt": "2024-04-16T20:32:47.855Z",
+    "updatedAt": "2024-04-16T20:32:47.855Z"
+  },
+  {
+    "metadata": {
+      "originalName": "image-1-2.jpg",
+      "size": 110298,
+      "md5": "65fd9ca44fc2406669d302415ffcd18d"
+    },
+    "_id": "661edf8878c63a2baff5a424",
+    "name": "image-1-2.jpg",
+    "url": "2024/04/5bc36a1e-688b-4c42-848f-e2d209d2aebf-image-1-2.jpg",
+    "mimetype": "image/jpeg",
+    "tags": [],
+    "isDeleted": false,
+    "user": "66191f8731b3905b855ee6ec",
+    "createdAt": "2024-04-16T20:32:47.855Z",
+    "updatedAt": "2024-04-16T20:32:47.855Z"
+  },
+  {
+    "metadata": {
+      "originalName": "image-1-3.jpg",
+      "size": 110298,
+      "md5": "65fd9ca44fc2406669d302415ffcd18d"
+    },
+    "_id": "661ede94070f339ab975e9ca",
+    "name": "image-1-3.jpg",
+    "url": "2024/04/dc6fb8bd-fbca-4983-83e1-7f31bc86816a-image-1-3.jpg",
+    "mimetype": "image/jpeg",
+    "tags": [],
+    "isDeleted": false,
+    "user": "66191f8731b3905b855ee6ec",
+    "createdAt": "2024-04-16T20:32:47.855Z",
+    "updatedAt": "2024-04-16T20:32:47.855Z"
+  },
+  {
+    "metadata": {
+      "originalName": "image-2-1.jpg",
+      "size": 110298,
+      "md5": "65fd9ca44fc2406669d302415ffcd18d"
+    },
+    "_id": "661edd9a3fde9e94d32d665d",
+    "name": "image-2-1.jpg",
+    "url": "2024/04/7109554c-3925-42a6-bf7d-c9cf39eed376-image-2-1.jpg",
+    "mimetype": "image/jpeg",
+    "tags": [],
+    "isDeleted": false,
+    "user": "66191f8731b3905b855ee6ed",
+    "createdAt": "2024-04-16T20:32:47.855Z",
+    "updatedAt": "2024-04-16T20:32:47.855Z"
+  },
+  {
+    "metadata": {
+      "originalName": "image-2-2.jpg",
+      "size": 110298,
+      "md5": "65fd9ca44fc2406669d302415ffcd18d"
+    },
+    "_id": "661edc9921f7dee6d510a937",
+    "name": "image-2-2.jpg",
+    "url": "2024/04/8c24bd2e-12a4-4e5f-b9fb-238a79d96f08-image-2-2.jpg",
+    "mimetype": "image/jpeg",
+    "tags": [],
+    "isDeleted": false,
+    "user": "66191f8731b3905b855ee6ed",
+    "createdAt": "2024-04-16T20:32:47.855Z",
+    "updatedAt": "2024-04-16T20:32:47.855Z"
+  }
+]
