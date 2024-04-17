@@ -12,6 +12,7 @@ const mongoose = require("mongoose");
 const Category = require("../src/models/Category");
 const Media = require("../src/models/Media");
 const Subcategory = require("../src/models/Subcategory");
+const Transaction = require("../src/models/Transaction");
 const User = require("../src/models/User");
 
 // connect to DB
@@ -28,6 +29,10 @@ const subcategories = JSON.parse(
   fs.readFileSync(`${__dirname}/subcategories.json`, "utf-8")
 );
 
+const transactions = JSON.parse(
+  fs.readFileSync(`${__dirname}/transactions.json`, "utf-8")
+);
+
 const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, "utf-8"));
 
 // import into DB
@@ -36,6 +41,7 @@ const importData = async () => {
     await Category.create(categories);
     await Media.create(media);
     await Subcategory.create(subcategories);
+    await Transaction.create(transactions);
     await User.create(users);
 
     console.log("Data Imported...".green.inverse);
@@ -51,6 +57,7 @@ const deleteData = async () => {
     await Category.deleteMany();
     await Media.deleteMany();
     await Subcategory.deleteMany();
+    await Transaction.deleteMany();
     await User.deleteMany();
 
     console.log("Data Destroyed...".red.inverse);
