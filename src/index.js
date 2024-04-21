@@ -14,7 +14,7 @@ const { port, publicUploadsBasePath } = require("./config/express");
 const errorHandler = require("./middleware/errorHandler");
 
 // db connection
-const connectDB = require("./config/db");
+const { connectDB } = require("./config/db");
 connectDB();
 
 // express application
