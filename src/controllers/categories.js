@@ -31,7 +31,7 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
 /**
  * @desc    Create new category
  * @route   POST /v1/categories
- * @access  Private
+ * @access  Private/Admin
  */
 exports.createCategory = asyncHandler(async (req, res, next) => {
   try {
@@ -61,7 +61,7 @@ exports.createCategory = asyncHandler(async (req, res, next) => {
 /**
  * @desc    Update category
  * @route   PUT /v1/categories/:id
- * @access  Private
+ * @access  Private/Admin
  */
 exports.updateCategory = asyncHandler(async (req, res, next) => {
   const category = await Category.findById(req.params.id);
@@ -103,7 +103,7 @@ exports.updateCategory = asyncHandler(async (req, res, next) => {
 /**
  * @desc    Delete category
  * @route   DELETE /v1/categories/:id
- * @access  Private
+ * @access  Private/Admin
  */
 exports.deleteCategory = asyncHandler(async (req, res, next) => {
   const category = await Category.findById(req.params.id);

@@ -9,7 +9,7 @@ const {
 } = require("../../controllers/categories");
 
 const advancedResults = require("../../middleware/advancedResults");
-const { authenticate } = require("../../middleware/auth");
+const { authenticate, authorize } = require("../../middleware/auth");
 
 const Category = require("../../models/Category");
 
@@ -26,12 +26,12 @@ router.use("/:categoryId/subcategories", subcategoryRouter);
 router
   .route("/")
   .get(advancedResults(Category, "subcategories"), getAllCategories)
-  .post(createCategory);
+  .post(authorize("admin"), createCategory);
 
 router
   .route("/:id")
   .get(getCategory)
-  .put(updateCategory)
-  .delete(deleteCategory);
+  .put(authorize("admin"), updateCategory)
+  .delete(authorize("admin"), deleteCategory);
 
 module.exports = router;
