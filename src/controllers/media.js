@@ -1,6 +1,7 @@
 const crypto = require("crypto");
 const fs = require("fs");
 const path = require("path");
+
 const {
   acceptedMimetypes,
   mediaUploadsFullPath,
@@ -15,9 +16,8 @@ const ErrorResponse = require("../utils/errorResponse");
  * @route   GET /v1/media
  * @access  Private
  */
-exports.getAllMedia = asyncHandler(async (req, res) => {
-  const media = await Media.find({ user: req.user.id });
-  res.status(200).json({ success: true, count: media.length, data: media });
+exports.getAllMedia = asyncHandler(async (_, res) => {
+  res.status(200).json(res.advancedResults);
 });
 
 /**

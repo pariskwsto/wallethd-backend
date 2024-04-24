@@ -8,7 +8,7 @@ const {
   deleteSubcategory,
 } = require("../../controllers/subcategories");
 
-const advancedResults = require("../../middleware/advancedResults");
+const { advancedResults } = require("../../middleware/advancedResults");
 const { authenticate, authorize } = require("../../middleware/auth");
 
 const Subcategory = require("../../models/Subcategory");

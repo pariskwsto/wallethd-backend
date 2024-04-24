@@ -79,4 +79,10 @@ const advancedResults = (model, populate) => async (req, res, next) => {
   next();
 };
 
-module.exports = advancedResults;
+const privateAdvancedResults = (model, populate) => async (req, res, next) => {
+  req.query.user = req.user.id;
+  const middleware = advancedResults(model, populate);
+  middleware(req, res, next);
+};
+
+module.exports = { advancedResults, privateAdvancedResults };
