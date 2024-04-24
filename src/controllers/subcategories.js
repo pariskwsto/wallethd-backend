@@ -48,7 +48,7 @@ exports.getSubcategory = asyncHandler(async (req, res, next) => {
 /**
  * @desc    Create new subcategory
  * @route   POST /v1/categories/:categoryId/subcategories
- * @access  Private
+ * @access  Private/Admin
  */
 exports.createSubcategory = asyncHandler(async (req, res, next) => {
   req.body.category = req.params.categoryId;
@@ -84,7 +84,7 @@ exports.createSubcategory = asyncHandler(async (req, res, next) => {
 /**
  * @desc    Update subcategory
  * @route   PUT /v1/subcategories/:id
- * @access  Private
+ * @access  Private/Admin
  */
 exports.updateSubcategory = asyncHandler(async (req, res, next) => {
   const subcategory = await Subcategory.findById(req.params.id).populate({
@@ -126,7 +126,7 @@ exports.updateSubcategory = asyncHandler(async (req, res, next) => {
 /**
  * @desc    Delete subcategory
  * @route   DELETE /v1/subcategories/:id
- * @access  Private
+ * @access  Private/Admin
  */
 exports.deleteSubcategory = asyncHandler(async (req, res, next) => {
   const subcategory = await Subcategory.findByIdAndDelete(req.params.id);

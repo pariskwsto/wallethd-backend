@@ -9,7 +9,7 @@ const {
 } = require("../../controllers/subcategories");
 
 const advancedResults = require("../../middleware/advancedResults");
-const { authenticate } = require("../../middleware/auth");
+const { authenticate, authorize } = require("../../middleware/auth");
 
 const Subcategory = require("../../models/Subcategory");
 
@@ -26,12 +26,12 @@ router
     }),
     getAllSubcategories
   )
-  .post(createSubcategory);
+  .post(authorize("admin"), createSubcategory);
 
 router
   .route("/:id")
   .get(getSubcategory)
-  .put(updateSubcategory)
-  .delete(deleteSubcategory);
+  .put(authorize("admin"), updateSubcategory)
+  .delete(authorize("admin"), deleteSubcategory);
 
 module.exports = router;
