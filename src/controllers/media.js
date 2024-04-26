@@ -21,6 +21,33 @@ exports.getAllMedia = asyncHandler(async (_, res) => {
 });
 
 /**
+ * @desc    Get single media
+ * @route   GET /v1/media/:id
+ * @access  Private
+ */
+exports.getMedia = asyncHandler(async (req, res, next) => {
+  const media = await Media.findById(req.params.id);
+
+  if (!media || media.isDeleted) {
+    return next(
+      new ErrorResponse(`Media with id ${req.params.id} not found`, 404)
+    );
+  }
+
+  // make sure user is media owner
+  if (media.user.toString() !== req.user.id) {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorized to access this media`,
+        401
+      )
+    );
+  }
+
+  res.status(200).json({ success: true, data: media });
+});
+
+/**
  * @desc    Create new media
  * @route   POST /v1/media
  * @access  Private
@@ -109,6 +136,107 @@ exports.createMedia = asyncHandler(async (req, res, next) => {
       return next(err);
     }
   });
+});
+
+/**
+ * @desc    Update media
+ * @route   PUT /v1/media/:id
+ * @access  Private
+ */
+exports.updateMedia = asyncHandler(async (req, res, next) => {
+  let media = await Media.findById(req.params.id);
+
+  if (!media || media.isDeleted) {
+    return next(
+      new ErrorResponse(`Media with id ${req.params.id} not found`, 404)
+    );
+  }
+
+  // make sure user is media owner
+  if (media.user.toString() !== req.user.id) {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorized to access this media`,
+        401
+      )
+    );
+  }
+
+  media = await Media.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({ success: true, data: media });
+});
+
+/**
+ * @desc    Delete media
+ * @route   DELETE /v1/media/:id
+ * @access  Private
+ */
+exports.deleteMedia = asyncHandler(async (req, res, next) => {
+  const media = await Media.findById(req.params.id);
+
+  if (!media || media.isDeleted) {
+    return next(
+      new ErrorResponse(`Media with id ${req.params.id} not found`, 404)
+    );
+  }
+
+  // make sure user is media owner
+  if (media.user.toString() !== req.user.id) {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorized to access this media`,
+        401
+      )
+    );
+  }
+
+  media.isDeleted = true;
+  media.deletedAt = new Date();
+  await media.save();
+
+  res.status(200).json({ success: true, data: {} });
+});
+
+/**
+ * @desc    Destroy (hard delete) media
+ * @route   DELETE /v1/media/:id/hard
+ * @access  Private
+ */
+exports.destroyMedia = asyncHandler(async (req, res, next) => {
+  const media = await Media.findById(req.params.id);
+
+  if (!media) {
+    return next(
+      new ErrorResponse(`Media with id ${req.params.id} not found`, 404)
+    );
+  }
+
+  // make sure user is media owner
+  if (media.user.toString() !== req.user.id) {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorized to access this media`,
+        401
+      )
+    );
+  }
+
+  if (!media.isDeleted) {
+    return next(
+      new ErrorResponse(
+        `Media with id ${req.params.id} is not in the trash. It may have already been permanently deleted.`,
+        404
+      )
+    );
+  }
+
+  await media.deleteOne();
+
+  res.status(200).json({ success: true, data: {} });
 });
 
 const getReadableMimetypes = () => {
