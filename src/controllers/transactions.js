@@ -8,8 +8,7 @@ const ErrorResponse = require("../utils/errorResponse");
  * @access  Private
  */
 exports.getAllTransactions = asyncHandler(async (_, res) => {
-  const transactions = await Transaction.find();
-  res.status(200).json({ success: true, data: transactions });
+  res.status(200).json(res.advancedResults);
 });
 
 /**
@@ -26,6 +25,16 @@ exports.getTransaction = asyncHandler(async (req, res, next) => {
     );
   }
 
+  // make sure user is transaction owner
+  if (transaction.user.toString() !== req.user.id) {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorized to access this transaction`,
+        401
+      )
+    );
+  }
+
   res.status(200).json({ success: true, data: transaction });
 });
 
@@ -36,7 +45,6 @@ exports.getTransaction = asyncHandler(async (req, res, next) => {
  */
 exports.createTransaction = asyncHandler(async (req, res) => {
   req.body.user = req.user.id;
-
   const transaction = await Transaction.create(req.body);
   res.status(201).json({ success: true, data: transaction });
 });
@@ -47,20 +55,28 @@ exports.createTransaction = asyncHandler(async (req, res) => {
  * @access  Private
  */
 exports.updateTransaction = asyncHandler(async (req, res, next) => {
-  const transaction = await Transaction.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-      runValidators: true,
-    }
-  );
+  let transaction = await Transaction.findById(req.params.id);
 
   if (!transaction) {
     return next(
       new ErrorResponse(`Transaction with id ${req.params.id} not found`, 404)
     );
   }
+
+  // make sure user is transaction owner
+  if (transaction.user.toString() !== req.user.id) {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorized to access this transaction`,
+        401
+      )
+    );
+  }
+
+  transaction = await Transaction.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
 
   res.status(200).json({ success: true, data: transaction });
 });
@@ -71,13 +87,25 @@ exports.updateTransaction = asyncHandler(async (req, res, next) => {
  * @access  Private
  */
 exports.deleteTransaction = asyncHandler(async (req, res, next) => {
-  const transaction = await Transaction.findByIdAndDelete(req.params.id);
+  const transaction = await Transaction.findById(req.params.id);
 
   if (!transaction) {
     return next(
       new ErrorResponse(`Transaction with id ${req.params.id} not found`, 404)
     );
   }
+
+  // make sure user is transaction owner
+  if (transaction.user.toString() !== req.user.id) {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorized to access this transaction`,
+        401
+      )
+    );
+  }
+
+  await transaction.deleteOne();
 
   res.status(200).json({ success: true, data: {} });
 });

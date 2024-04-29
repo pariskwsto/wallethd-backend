@@ -8,13 +8,18 @@ const {
   deleteTransaction,
 } = require("../../controllers/transactions");
 
+const { privateAdvancedResults } = require("../../middleware/advancedResults");
 const { authenticate } = require("../../middleware/auth");
+const Transaction = require("../../models/Transaction");
 
 const router = express.Router();
 
 router.use(authenticate);
 
-router.route("/").get(getAllTransactions).post(createTransaction);
+router
+  .route("/")
+  .get(privateAdvancedResults(Transaction), getAllTransactions)
+  .post(createTransaction);
 
 router
   .route("/:id")
