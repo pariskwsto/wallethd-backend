@@ -3,6 +3,8 @@
     "username": "johnsmith",
     "email": "johnsmith@example.com",
     "password": "123456",
+    "firstName": "John",
+    "lastName": "Smith",
     "_id": "66191f8731b3905b855ee6ec",
     "createdAt": "2023-04-12T11:48:23.745Z",
     "updatedAt": "2023-04-12T11:48:23.745Z"
@@ -12,7 +14,35 @@
     "email": "janedoe@example.com",
     "password": "123456",
     "role": "viewer",
+    "firstName": "Jane",
+    "lastName": "Doe",
     "_id": "66191f8731b3905b855ee6ed",
+    "createdAt": "2024-04-12T11:48:23.745Z",
+    "updatedAt": "2024-04-12T11:48:23.745Z"
+  },
+  {
+    "username": "bobjones",
+    "email": "bobjones@example.net",
+    "password": "123456",
+    "_id": "662e6bde202e7dcfe8d03b4a",
+    "createdAt": "2024-04-12T11:48:23.745Z",
+    "updatedAt": "2024-04-12T11:48:23.745Z"
+  },
+  {
+    "username": "alicewhite",
+    "email": "alice.white@example.org",
+    "password": "123456",
+    "_id": "662e6c760e7a745ac1351e2c",
+    "createdAt": "2024-04-12T11:48:23.745Z",
+    "updatedAt": "2024-04-12T11:48:23.745Z"
+  },
+  {
+    "username": "mikeross",
+    "email": "mike.ross@example.com",
+    "password": "123456",
+    "firstName": "Mike",
+    "lastName": "Ross",
+    "_id": "662e6cffc055743e803aeb91",
     "createdAt": "2024-04-12T11:48:23.745Z",
     "updatedAt": "2024-04-12T11:48:23.745Z"
   }
