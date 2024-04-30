@@ -19,20 +19,43 @@ const User = require("../src/models/User");
 mongoose.connect(process.env.MONGO_URI);
 
 // read JSON files
+/** categories */
 const categories = JSON.parse(
   fs.readFileSync(`${__dirname}/categories.json`, "utf-8")
 );
 
+/** media */
 const media = JSON.parse(fs.readFileSync(`${__dirname}/media.json`, "utf-8"));
 
+/** subcategories */
 const subcategories = JSON.parse(
   fs.readFileSync(`${__dirname}/subcategories.json`, "utf-8")
 );
 
-const transactions = JSON.parse(
-  fs.readFileSync(`${__dirname}/transactions.json`, "utf-8")
+/** transactions */
+const transactionsJanedoe = JSON.parse(
+  fs.readFileSync(`${__dirname}/transactionsJanedoe.json`, "utf-8")
+);
+const transactionsJanedoeSalaries = JSON.parse(
+  fs.readFileSync(`${__dirname}/transactionsJanedoeSalaries.json`, "utf-8")
+);
+const transactionsJohnsmith = JSON.parse(
+  fs.readFileSync(`${__dirname}/transactionsJohnsmith.json`, "utf-8")
+);
+const transactionsJohnsmithMealVouchers = JSON.parse(
+  fs.readFileSync(
+    `${__dirname}/transactionsJohnsmithMealVouchers.json`,
+    "utf-8"
+  )
+);
+const transactionsJohnsmithRent = JSON.parse(
+  fs.readFileSync(`${__dirname}/transactionsJohnsmithRent.json`, "utf-8")
+);
+const transactionsJohnsmithSalaries = JSON.parse(
+  fs.readFileSync(`${__dirname}/transactionsJohnsmithSalaries.json`, "utf-8")
 );
 
+/** users */
 const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, "utf-8"));
 
 // import into DB
@@ -41,7 +64,14 @@ const importData = async () => {
     await Category.create(categories);
     await Media.create(media);
     await Subcategory.create(subcategories);
-    await Transaction.create(transactions);
+    await Transaction.create([
+      ...transactionsJanedoe,
+      ...transactionsJanedoeSalaries,
+      ...transactionsJohnsmith,
+      ...transactionsJohnsmithMealVouchers,
+      ...transactionsJohnsmithRent,
+      ...transactionsJohnsmithSalaries,
+    ]);
     await User.create(users);
 
     console.log("Data Imported...".green.inverse);
