@@ -3,4 +3,4 @@ const filterDeletedMedia = async (req, _, next) => {
   next();
 };
 
-module.exports = { filterDeletedMedia };
+module.exports = filterDeletedMedia;
