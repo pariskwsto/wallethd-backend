@@ -13,7 +13,6 @@
     "username": "janedoe",
     "email": "janedoe@example.com",
     "password": "123456",
-    "role": "viewer",
     "firstName": "Jane",
     "lastName": "Doe",
     "_id": "66191f8731b3905b855ee6ed",
