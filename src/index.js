@@ -10,12 +10,12 @@ const morgan = require("morgan");
 // server configuration
 const { port, publicUploadsBasePath } = require("./config/express");
 
-// middleware
-const errorHandler = require("./middleware/errorHandler");
-
 // db connection
 const { connectDB } = require("./config/db");
 connectDB();
+
+// middleware
+const errorHandler = require("./middleware/errorHandler");
 
 // express application
 const app = express();
