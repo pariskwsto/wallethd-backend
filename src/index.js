@@ -3,6 +3,7 @@ require("dotenv").config();
 
 // third party libs
 require("colors");
+const cors = require("cors");
 const express = require("express");
 const fileupload = require("express-fileupload");
 const morgan = require("morgan");
@@ -20,6 +21,8 @@ const errorHandler = require("./middleware/errorHandler");
 // express application
 const app = express();
 
+// allow cross origin requests
+app.use(cors());
 // body parser
 app.use(express.json());
 // file uploading
